@@ -23,10 +23,11 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorEmptyList()  {
 
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-
         List<Integer> listNumbers = Arrays.asList();
 
-        oddNumbersExterminator.exterminate(listNumbers);
+        List<Integer> result = oddNumbersExterminator.exterminate(listNumbers);
+
+        Assertions.assertEquals(listNumbers, result);
 
     }
 
@@ -35,15 +36,12 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorNormalList(){
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
-        Integer[] myNumbers = new Integer[5];
         List<Integer> testNumbers = Arrays.asList(5,10,33,42,30);
+        List<Integer> expectedList = Arrays.asList(10,42,30);
 
         List<Integer> result = oddNumbersExterminator.exterminate(testNumbers);
 
-        System.out.println(result);
+        Assertions.assertEquals(expectedList, result);
     }
-
-
-
 
 }
