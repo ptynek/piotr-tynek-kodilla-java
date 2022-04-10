@@ -50,6 +50,18 @@ public class ShapeCollectorTestSuite {
             Assertions.assertTrue(result);
             Assertions.assertEquals(0, shapeCollector.figures.size());
         }
+
+        @Test
+        void testRemoveFigureNotExisting(){
+            ShapeCollector shapeCollector = new ShapeCollector();
+            Shape square = new Square("square", 5);
+            shapeCollector.addFigure(square);
+
+            boolean result = shapeCollector.removeFigure(triangle);
+
+            Assertions.assertFalse(result);
+
+        }
     }
 
     @Nested

@@ -81,5 +81,26 @@ class Square implements Shape {
     }
 }
 
+class Circle implements Shape {
+
+    private String name;
+    private double radius;
+
+    public Circle(String name, double radius) {
+        this.name = name;
+        this.radius = radius;
+    }
+
+    public String getShapeName(){
+        return name;
+    }
+    public double getField(){
+
+        double field = 2 * 3.14 * radius;
+
+        return field;
+    }
+}
+
 
 
