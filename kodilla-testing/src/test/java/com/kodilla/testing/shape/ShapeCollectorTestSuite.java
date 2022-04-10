@@ -11,73 +11,79 @@ public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
 
     @BeforeAll
-    public static void beforeAll(){
+    public static void beforeAll() {
         System.out.println("Start testing...");
     }
 
     @AfterAll
-    public static void afterAll(){
+    public static void afterAll() {
         System.out.println("Tests are finished.");
     }
 
     @BeforeEach
-    public void beforeEveryTest(){
-        testCounter ++;
+    public void beforeEveryTest() {
+        testCounter++;
         System.out.println("Test #" + testCounter);
     }
 
-    @Test
-    void testAddFigure() {
-        Shape square = new Square("square", 5);
-        ShapeCollector shapeCollector = new ShapeCollector();
+    @Nested
+    @DisplayName("Modify figures")
+    class ModifyFigures {
+        @Test
+        void testAddFigure() {
+            Shape square = new Square("square", 5);
+            ShapeCollector shapeCollector = new ShapeCollector();
 
-        shapeCollector.addFigure(square);
+            shapeCollector.addFigure(square);
 
-        Assertions.assertEquals(1, shapeCollector.figures.size());
-    }
-    @Test
-    void testRemoveFigure(){
-        Shape square = new Square("square", 5);
-        ShapeCollector shapeCollector = new ShapeCollector();
-        shapeCollector.addFigure(square);
+            Assertions.assertEquals(1, shapeCollector.figures.size());
+        }
 
-        boolean result = shapeCollector.removeFigure(square);
+        @Test
+        void testRemoveFigure() {
+            Shape square = new Square("square", 5);
+            ShapeCollector shapeCollector = new ShapeCollector();
+            shapeCollector.addFigure(square);
 
-        Assertions.assertTrue(result);
-        Assertions.assertEquals(0, shapeCollector.figures.size());
-    }
+            boolean result = shapeCollector.removeFigure(square);
 
-    @Test
-    void testGetFigure(){
-        Shape square = new Square("square", 5);
-        ShapeCollector shapeCollector = new ShapeCollector();
-        shapeCollector.addFigure(square);
-
-        Shape shape = shapeCollector.figures.get(0);
-
-        Assertions.assertEquals(square, shape);
+            Assertions.assertTrue(result);
+            Assertions.assertEquals(0, shapeCollector.figures.size());
+        }
     }
 
-    @Test
-    void testGetFuigureNotExisting(){
-        ShapeCollector shapeCollector = new ShapeCollector();
+    @Nested
+    @DisplayName("Show figures")
+    class ShowFigures {
+        @Test
+        void testGetFigure() {
+            Shape square = new Square("square", 5);
+            ShapeCollector shapeCollector = new ShapeCollector();
+            shapeCollector.addFigure(square);
 
-        Shape result = shapeCollector.getFigure(0);
+            Shape shape = shapeCollector.figures.get(0);
 
-        Assertions.assertNull(result);
+            Assertions.assertEquals(square, shape);
+        }
+
+        @Test
+        void testGetFuigureNotExisting() {
+            ShapeCollector shapeCollector = new ShapeCollector();
+
+            Shape result = shapeCollector.getFigure(-11);
+
+            Assertions.assertNull(result);
+        }
+
+        @Test
+        void testShowFigure() {
+            Shape square = new Square("square", 5);
+            ShapeCollector shapeCollector = new ShapeCollector();
+            shapeCollector.addFigure(square);
+
+            String result = shapeCollector.showFigures();
+
+            Assertions.assertEquals(result, square.getShapeName());
+        }
     }
-    
-    @Test
-    void testShowFigure(){
-        Shape square = new Square("square", 5);
-        ShapeCollector shapeCollector = new ShapeCollector();
-        shapeCollector.addFigure(square);
-
-        String result = shapeCollector.showFigures();
-
-        Assertions.assertEquals(result, square.getShapeName());
-        
-    }
-
-
 }
