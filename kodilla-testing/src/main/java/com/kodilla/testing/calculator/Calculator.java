@@ -1,5 +1,7 @@
 package com.kodilla.testing.calculator;
 
+import java.util.*;
+
 public class Calculator {
 
     public int add(int a, int b) {
@@ -15,4 +17,5 @@ public class Calculator {
 
         return resultSubtract;
     }
+
 }
