@@ -55,9 +55,8 @@ public class ShapeCollectorTestSuite {
         void testRemoveFigureNotExisting(){
             ShapeCollector shapeCollector = new ShapeCollector();
             Shape square = new Square("square", 5);
-            shapeCollector.addFigure(square);
 
-            boolean result = shapeCollector.removeFigure(triangle);
+            boolean result = shapeCollector.removeFigure(square);
 
             Assertions.assertFalse(result);
 
