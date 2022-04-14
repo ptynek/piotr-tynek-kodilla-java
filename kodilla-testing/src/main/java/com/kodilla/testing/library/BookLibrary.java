@@ -1,0 +1,40 @@
+package com.kodilla.testing.library;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class BookLibrary {
+
+    private LibraryDatabase libraryDatabase;
+
+    public BookLibrary(LibraryDatabase libraryDatabase){
+        this.libraryDatabase = libraryDatabase;
+    }
+
+    public List<Book> listBooksWitCondition(String titleFragment){
+        List<Book> bookList = new ArrayList<>();
+        if (titleFragment.length() < 3) return bookList;
+        List<Book> resultList = libraryDatabase.listBooksWithCondition(titleFragment);
+        if (resultList.size() > 20) return bookList;
+        bookList = resultList;
+
+        return bookList;
+    }
+
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
+        List<Book> booksList = new ArrayList<>();
+        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        HashMap <LibraryUser, ArrayList<Book>> newList = new HashMap<>();
+        newList.put(libraryUser, (ArrayList<Book>) resultList);
+
+        for(LibraryUser keyValue: newList.keySet()) {
+            if (newList.containsKey(libraryUser)) {
+                booksList.addAll(newList.get(keyValue));
+            }
+        }
+
+
+        return booksList;
+    }
+}
