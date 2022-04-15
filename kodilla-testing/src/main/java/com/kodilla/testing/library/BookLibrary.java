@@ -23,18 +23,6 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> booksList = new ArrayList<>();
-        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
-        HashMap <LibraryUser, ArrayList<Book>> newList = new HashMap<>();
-        newList.put(libraryUser, (ArrayList<Book>) resultList);
-
-        for(LibraryUser keyValue: newList.keySet()) {
-            if (newList.containsKey(libraryUser)) {
-                booksList.addAll(newList.get(keyValue));
-            }
-        }
-
-
-        return booksList;
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 }
