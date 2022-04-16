@@ -2,7 +2,7 @@ package com.kodilla.testing.forum.statistics;
 
 public class CommentsAndPosts {
 
-    private Statistics statistics;
+    //private Statistics statistics;
 
     private int amountOfUsers;
     private int amountOfPosts;
@@ -13,9 +13,9 @@ public class CommentsAndPosts {
 
 
 
-    public CommentsAndPosts(Statistics statistics){
-        this.statistics = statistics;
-    }
+//    public CommentsAndPosts(Statistics statistics){
+//        this.statistics = statistics;
+//    }
 
     public void calculateAdvStatistics(Statistics statistics) {
         amountOfUsers = statistics.usersNames().size();
@@ -33,7 +33,7 @@ public class CommentsAndPosts {
     }
 
     public String showStatistics() {
-        calculateAdvStatistics(statistics);
+        //calculateAdvStatistics();
         return amountOfUsers + ", " + amountOfPosts + ", " + amountOfComments + ", " + postsAverageForUsers + ", " +
                 commentsAverageForUsers + ", " + averageAmountOfCommentsForPost;
     }
@@ -100,15 +100,14 @@ public class CommentsAndPosts {
         if (Double.compare(that.commentsAverageForUsers, commentsAverageForUsers) != 0) return false;
         if (Double.compare(that.averageAmountOfCommentsForPost, averageAmountOfCommentsForPost) != 0)
             return false;
-        return statistics.equals(that.statistics);
+        return true;
     }
 
     @Override
     public int hashCode() {
         int result;
         long temp;
-        result = statistics.hashCode();
-        result = 31 * result + amountOfUsers;
+        result = 31 * amountOfUsers;
         result = 31 * result + amountOfPosts;
         result = 31 * result + amountOfComments;
         temp = Double.doubleToLongBits(postsAverageForUsers);

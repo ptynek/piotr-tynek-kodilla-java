@@ -30,7 +30,7 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testAverageAmountOfPostsForUserWhen0Posts(){
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         List<String> usersList = generateUsersList(100);
         when(statisticsMock.postsCount()).thenReturn(0);
         when(statisticsMock.usersNames()).thenReturn(usersList);
@@ -43,7 +43,7 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testAverageAmountOfPostsForUserWhen1000Posts(){
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         List<String> usersList = generateUsersList(100);
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.usersNames()).thenReturn(usersList);
@@ -55,7 +55,7 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testAverageAmountOfCommentsForUserWhen0Comments(){
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         List<String> usersList = generateUsersList(100);
         when(statisticsMock.commentsCount()).thenReturn(0);
         when(statisticsMock.usersNames()).thenReturn(usersList);
@@ -67,7 +67,7 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testAverageAmountOfCommentsForPostsWhenMorePosts(){
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(100);
 
@@ -78,7 +78,7 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testAverageAmountOfCommentsForPostsWhenMoreComments() {
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(1000);
 
@@ -89,7 +89,7 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testAverageAmountOfPostsWhen0Users(){
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         List<String> usersList = generateUsersList(0);
         when(statisticsMock.usersNames()).thenReturn(usersList);
         when(statisticsMock.postsCount()).thenReturn(100);
@@ -103,7 +103,7 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testAverageAmountOfPostsWhen100Users(){
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         List<String> usersList = generateUsersList(100);
         when(statisticsMock.usersNames()).thenReturn(usersList);
         when(statisticsMock.postsCount()).thenReturn(100);
@@ -117,13 +117,13 @@ public class CommentsAndPostsTestSuite {
 
     @Test
     void testShowStatistics(){
-        CommentsAndPosts commentsAndPosts = new CommentsAndPosts(statisticsMock);
+        CommentsAndPosts commentsAndPosts = new CommentsAndPosts();
         List<String> usersList = generateUsersList(100);
         when(statisticsMock.usersNames()).thenReturn(usersList);
         when(statisticsMock.postsCount()).thenReturn(100);
         when(statisticsMock.commentsCount()).thenReturn(1000);
 
-        commentsAndPosts.showStatistics();
+        commentsAndPosts.calculateAdvStatistics(statisticsMock);
 
         Assertions.assertEquals("100, 100, 1000, 1.0, 10.0, 10.0",commentsAndPosts.showStatistics());
     }
