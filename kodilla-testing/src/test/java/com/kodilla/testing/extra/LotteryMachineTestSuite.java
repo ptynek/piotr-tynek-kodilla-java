@@ -15,27 +15,33 @@ import static org.mockito.Mockito.when;
 public class LotteryMachineTestSuite {
 
     @Mock
-    private LotteryMachine lotteryMachineMock;
+    private Database databaseMock;
     @Test
     void testMiniLotto(){
-        Set<Integer> lotteryNumbers = new HashSet<>();
-        lotteryNumbers.add(2);
-        lotteryNumbers.add(6);
-        lotteryNumbers.add(17);
-        lotteryNumbers.add(1);
-        lotteryNumbers.add(9);
         Set<Integer> userNumbers = new HashSet<>();
         userNumbers.add(5);
         userNumbers.add(7);
         userNumbers.add(2);
         userNumbers.add(8);
         userNumbers.add(18);
-        when(lotteryMachineMock.lottery(5)).thenReturn(userNumbers);
+        when(databaseMock.lottery(5)).thenReturn(userNumbers);
+        LotteryMachine lotteryMachine = new LotteryMachine();
 
+        int containsNumbers = lotteryMachine.miniLotto(databaseMock);
 
+        assertEquals(1, containsNumbers);
+    }
 
+    @Test
+    void testJackPot(){
+        Set<Integer> userNumbers = new HashSet<>();
+        userNumbers.add(3);
+        userNumbers.add(9);
+        when(databaseMock.lottery(2)).thenReturn(userNumbers);
+        LotteryMachine lotteryMachine = new LotteryMachine();
 
+        int containsNumbers = lotteryMachine.jackpot(databaseMock);
 
-
+        assertEquals(2, containsNumbers);
     }
 }
