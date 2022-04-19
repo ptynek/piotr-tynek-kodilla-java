@@ -136,11 +136,11 @@ public class BoardTestSuite {
         double avgDaysOfTasks = project.getTaskLists().stream()
                 .filter(taskList -> taskList.getName().equals("In progress"))
                 .flatMap(taskList -> taskList.getTasks().stream())
-                .filter(task -> task.getCreated().isBefore(LocalDate.now()))
+                .filter(task -> task.getCreated().isBefore(LocalDate.now().plusDays(1)))
                 .map(task -> LocalDate.now().getDayOfYear() - task.getCreated().getDayOfYear())
                 .mapToDouble(task -> task)
                 .average().getAsDouble();
 
-        Assertions.assertEquals(15.0, avgDaysOfTasks);
+        Assertions.assertEquals(10.0, avgDaysOfTasks);
     }
 }
