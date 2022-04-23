@@ -46,7 +46,6 @@ public class FileReaderTestSuite {
                 () -> assertThrows(Exception.class, () -> secondChallenge.probablyIWillThrowException(1.1, 1.5)),
                 () -> assertDoesNotThrow(() -> secondChallenge.probablyIWillThrowException(1.9, 1.6)),
                 () -> assertDoesNotThrow(() -> secondChallenge.probablyIWillThrowException(1.1, 1.6))
-
         );
     }
 }
