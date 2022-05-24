@@ -8,6 +8,7 @@ public class User {
         this.user = user;
     }
 
+
     public String getUsername() {
         return user;
     }

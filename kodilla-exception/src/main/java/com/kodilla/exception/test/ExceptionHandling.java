@@ -13,5 +13,6 @@ public class ExceptionHandling extends Exception {
         } finally {
             System.out.println("Koniec!");
         }
+
     }
 }
