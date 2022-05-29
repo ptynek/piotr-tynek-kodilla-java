@@ -4,9 +4,17 @@ import java.time.LocalDateTime;
 
 public class Application {
 
-    Manufacturer manufacturer = new Manufacturer("Extra Food Shop");
-    ProductOrder productOrder = new ProductOrder( "Coffe", 5);
-    LocalDateTime orderTime = LocalDateTime.of(2022, 9, 20, 12,33);
+    public static void main(String[] args) {
+
+        OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
+        Order order = orderRequestRetriever.retrieve();
+
+        OrderProcessor orderProcessor = new OrderProcessor(new InformationService(), new GlutenFreeShop());
+        orderProcessor.process(order);
+
+
+
+    }
 
 
 }

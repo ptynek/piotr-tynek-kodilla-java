@@ -2,18 +2,18 @@ package com.kodilla.good.patterns.challenges.food2door;
 
 public class OrderDto {
 
-    private Manufacturer manufacturer;
-    private  ProductOrder productOrder;
+    private User user;
+    ProductOrder productOrder;
     private boolean isOrdered;
 
-    public OrderDto(Manufacturer manufacturer, ProductOrder productOrder, boolean isOrdered) {
-        this.manufacturer = manufacturer;
+    public OrderDto(User user, ProductOrder productOrder, boolean isOrdered) {
+        this.user = user;
         this.productOrder = productOrder;
         this.isOrdered = isOrdered;
     }
 
-    public Manufacturer getManufacturer() {
-        return manufacturer;
+    public User getUser() {
+        return user;
     }
 
     public ProductOrder getProductOrder() {
