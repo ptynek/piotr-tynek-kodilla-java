@@ -37,4 +37,7 @@ public class SearchFlights {
                 .map(flight -> "Flight number: " + flight.getFlightNumber() + " - Departure: " + flight.getDepature() + "- via: " + flight.getVia()  + " - Arrival: " + flight.getArrival())
                 .forEach(System.out::println);
     }
+
 }
+
+

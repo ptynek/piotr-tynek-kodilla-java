@@ -10,5 +10,6 @@ public class Application {
         searchFlights.searchFlightTo("Wrocław");
         System.out.println();
         searchFlights.searchFlightsVia("Wrocław");
+
     }
 }
