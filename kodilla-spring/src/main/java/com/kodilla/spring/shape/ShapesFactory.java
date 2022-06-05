@@ -20,11 +20,10 @@ public class ShapesFactory {
         int chosen = generator.nextInt(3);
         if (chosen == 0) {
             theShape = new Triangle();
-        } else if (chosen == 1) {
+        } else  {
             theShape = new Circle();
-        } else {
-            theShape = new Square();
         }
         return theShape;
     }
+
 }

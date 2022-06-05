@@ -14,6 +14,10 @@ public class Board {
         this.doneList = doneList;
     }
 
+    public Board(){
+
+    }
+
     public TaskList addToDo(String text) {
         toDoList.getTasks().add(text);
         return toDoList;
