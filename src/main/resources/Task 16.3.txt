@@ -69,4 +69,5 @@ VALUES (3, '"New t-shirt', 'Buy 5 new t-shirts', 4);
 INSERT INTO issues(ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
 VALUES (3, 'Change pillow', 'Change pillows in bedroom', 5);
 
+COMMIT;
 
