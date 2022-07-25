@@ -48,7 +48,7 @@ public class RpsRunner {
 
             System.out.println("Rounds " + rounds);
             System.out.println("Round " + round);
-            if (!checkRounds.checkRound(round)) {
+            if (!checkRounds.checkRound(round, rounds)) {
                 System.out.println(result.announcement(result.computerResult, result.userResult));
                 System.out.println("Czy chcesz kontynuuować grę? (x/n)");
                 String doYouWantToContinue = scanner.next();
