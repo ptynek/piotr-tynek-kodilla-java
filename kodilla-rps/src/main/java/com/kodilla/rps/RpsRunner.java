@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class RpsRunner {
 
-    static int rounds = 0;
+
     static int round = 0;
 
     public static void main(String[] args) {
@@ -20,8 +20,8 @@ public class RpsRunner {
         boolean end = false;
         String name;
         String userMove;
-
         String computerMove;
+        int rounds = 0;
 
         System.out.println("Podaj swoje imię: ");
         name = scanner.next();

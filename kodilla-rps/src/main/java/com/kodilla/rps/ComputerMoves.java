@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ComputerMoves {
 
-    private List<String> movesToBeDrawn(){
+    public List<String> movesToBeDrawn(){
 
         List<String> moves = new LinkedList<>();
 
@@ -17,7 +17,7 @@ public class ComputerMoves {
         return moves;
     }
 
-    private String calculateComputerMove(String defaultMove) {
+    public String calculateComputerMove(String defaultMove) {
 
         Random random = new Random();
         List<String> moves = movesToBeDrawn();
