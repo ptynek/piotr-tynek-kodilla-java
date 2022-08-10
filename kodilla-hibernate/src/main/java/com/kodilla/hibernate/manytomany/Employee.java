@@ -5,13 +5,20 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-@NamedQueries({
-        @NamedQuery(
-                name = "Employee.findByLastName",
-                query = "FROM Employee WHERE lastname = :LASTNAME"
-        )
-})
+
+
+@NamedQuery(
+        name = "Employee.findByLastName",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
+)
+@NamedNativeQuery(
+        name = "Employee.findLastNameByFewLetters",
+        query = "SELECT * FROM Employees WHERE lastname LIKE CONCAT('%', :LASTNAME, '%')",
+        resultClass = Employee.class
+)
+
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
