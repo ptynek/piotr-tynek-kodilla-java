@@ -30,7 +30,7 @@ public class TaskListDaoTestSuite {
         int id = taskList.getId();
         assertEquals("List name", listName);
 
-        taskListDao.deleteById(id);
+       // taskListDao.deleteById(id);
 
     }
 

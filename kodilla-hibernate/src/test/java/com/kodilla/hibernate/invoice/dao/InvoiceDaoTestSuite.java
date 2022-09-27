@@ -39,6 +39,6 @@ public class InvoiceDaoTestSuite {
 
         assertNotEquals(0,id);
 
-        invoiceDao.deleteById(id);
+//        invoiceDao.deleteById(id);
   }
 }
